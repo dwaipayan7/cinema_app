@@ -1,4 +1,5 @@
 import 'package:cinema_app/features/pages/cinema_main_page.dart';
+import 'package:cinema_app/features/pages/details_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: CinemaMainPage(),
+      // home: MovieDetailPage(),
     );
   }
 }

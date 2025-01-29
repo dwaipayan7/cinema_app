@@ -5,6 +5,8 @@ import 'package:cinema_app/features/models/category_model.dart';
 import 'package:cinema_app/features/models/movie_model.dart';
 import 'package:flutter/material.dart';
 
+import 'details_page.dart';
+
 class HomeCinemaPage extends StatefulWidget {
   const HomeCinemaPage({super.key});
 
@@ -187,6 +189,13 @@ class _HomeCinemaPageState extends State<HomeCinemaPage> {
 
                           final movie = movies[index % movies.length];
                           return GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MovieDetailPage(movie: movie),
+                                ));
+                            },
                             child: Padding(
                               padding: EdgeInsets.only(
                                 top: 100 - (scale / 1.6 * 100),
@@ -196,13 +205,16 @@ class _HomeCinemaPageState extends State<HomeCinemaPage> {
                                 children: [
                                   Transform.rotate(
                                     angle: angle*pi/90,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(25),
-                                      child: Image.network(
-                                        movie.poster,
-                                        height: 300,
-                                        width: 205,
-                                        fit: BoxFit.cover,
+                                    child: Hero(
+                                      tag: movie.poster,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(25),
+                                        child: Image.network(
+                                          movie.poster,
+                                          height: 300,
+                                          width: 205,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                   ),
