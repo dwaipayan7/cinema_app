@@ -1,5 +1,6 @@
 import 'package:cinema_app/cors/const/consts.dart';
 import 'package:cinema_app/features/models/movie_model.dart';
+import 'package:cinema_app/features/pages/reservation_screen.dart';
 import 'package:cinema_app/features/widgets/movie_info.dart';
 import 'package:flutter/material.dart';
 
@@ -136,7 +137,14 @@ class MovieDetailPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           onPressed: () {},
           label: MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => ReservationScreen(),
+                ),
+              );
+            },
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(40),
             ),
@@ -148,10 +156,9 @@ class MovieDetailPage extends StatelessWidget {
                 child: Text(
                   "Get Reservation",
                   style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white
-                  ),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white),
                 ),
               ),
             ),
